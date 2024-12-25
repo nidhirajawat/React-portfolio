@@ -3,8 +3,33 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'; // Import 
 import './contact.css';
 
 const Contact = () => {
+
+    //  web3Forms
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+    
+        formData.append("access_key", "b3b32bce-1a47-4639-b153-8cb1ede87a2f");
+    
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+    
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: json
+        }).then((res) => res.json());
+    
+        if (res.success) {
+          alert(res.message)
+        }
+      };
+
   return (
-    <div className='contact'>
+    <div id='contact' className='contact'>
         <div className="contact-title">
             <h1>Get in touch</h1>
         </div>
@@ -19,7 +44,7 @@ const Contact = () => {
                     </div>
                     <div className="contact-detail">
                         <FaPhone className="icon" /> 
-                        <p>+789-543-3445</p>
+                        <p>+91 722-400-9822</p>
                     </div>
                     <div className="contact-detail">
                         <FaMapMarkerAlt className="icon" /> 
@@ -27,7 +52,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <form className='contact-right'>
+            <form onSubmit={onSubmit} className='contact-right'>
                 <label htmlFor="">Your Name</label>
                 <input type="text" placeholder='Enter your name' name='' />
 

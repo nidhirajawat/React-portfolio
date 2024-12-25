@@ -53,3 +53,14 @@
 .hero-resume:hover{
     border-color: #B414FF;
 }
+
+.hero-resume .resume-link {
+    text-decoration: none;
+    color: #fff;
+    /* background-color: #007BFF; */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  

@@ -55,13 +55,13 @@
     line-height: 30px;
     max-width: 200px;
 }
-.services-readm{
+.services-redm{
     display: flex;
     gap: 20px;
     align-items: center;
     margin-top: 20px;
 }
-.services-readm img {
+.services-redm img {
     width: 20%;
     filter: brightness(0) invert(1);
 }
